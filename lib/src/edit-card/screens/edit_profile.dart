@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:swisecard/core/res/assets/image_assets.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/src/edit-card/widgets/expand_content_card.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
-class EditServices extends StatelessWidget {
-  const EditServices({super.key});
+class EditProfile extends StatelessWidget {
+  const EditProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class EditServices extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.fromLTRB(20.sp, 10.sp, 20.sp, 10.sp),
           child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20.h),
               Text(
@@ -29,6 +29,7 @@ class EditServices extends StatelessWidget {
               SizedBox(height: 15.h),
               Text(
                 "Swiss eCard Url",
+
                 style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
               ),
               Container(
@@ -61,40 +62,73 @@ class EditServices extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 15.h),
-              Column(
-                children: [
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 2,
-                    itemBuilder: (context, index) {
-                      return ExpandableContentCard(
-                        title: 'XYZ',
-                        content:
-                            'K2 E-Commerce K2 E-Commerce is a multi-brand online shopping platform that provides customers with access to a wide variety of clothing and fashion products. The platform brings together different brands under one digital roof, making it easy for customers to browse, compare, and purchase the latest trends in apparel. Our service is designed to deliver a ',
-                        onEdit: () {},
-                        onDelete: () {},
-                      );
-                    },
-                  ),
-                ],
+              Text(
+                "Cover Image",
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10.h),
+              Container(
+                height: 150.h,
+                width: double.infinity,
+                decoration: BoxDecoration(border: Border.all(width: 1.0)),
+                child: Image.asset(ImageAssets.logo, fit: BoxFit.cover),
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                "Upload Cover Image",
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10.h),
+              RoundButton(
+                width: 120.w,
+                height: 40.h,
+                title: "Choose Image",
+                onPress: () {},
               ),
               Divider(),
-              SizedBox(height: 10.h),
+              SizedBox(height: 15.h),
               Text(
-                "You Can add More Services from",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
+                "Profile Image",
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10.h),
               Center(
+                child: Container(
+                  width: 170.r,
+                  height: 170.r,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1.0),
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage(ImageAssets.logo),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 15.h),
+              Text(
+                "Upload Profile Image",
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10.h),
+              RoundButton(
+                width: 120.w,
+                height: 40.h,
+                title: "Choose Image",
+                onPress: () {},
+              ),
+              Divider(),
+              SizedBox(height: 30.h),
+              Center(
                 child: RoundButton(
-                  width: 150.w,
-                  height: 40.h,
-                  title: 'Add More Services',
+                  width: 120.w,
+                  title: "Update",
                   onPress: () {},
                 ),
               ),
+              SizedBox(height: 10.h),
             ],
           ),
         ),

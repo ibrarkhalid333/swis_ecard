@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/src/edit-card/widgets/expand_content_card.dart';
+import 'package:swisecard/src/edit-card/widgets/color_tile.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
-class EditServices extends StatelessWidget {
-  const EditServices({super.key});
+class EditTheme extends StatelessWidget {
+  const EditTheme({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class EditServices extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.fromLTRB(20.sp, 10.sp, 20.sp, 10.sp),
           child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(height: 20.h),
               Text(
@@ -61,31 +61,33 @@ class EditServices extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 15.h),
-              Column(
-                children: [
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 2,
-                    itemBuilder: (context, index) {
-                      return ExpandableContentCard(
-                        title: 'XYZ',
-                        content:
-                            'K2 E-Commerce K2 E-Commerce is a multi-brand online shopping platform that provides customers with access to a wide variety of clothing and fashion products. The platform brings together different brands under one digital roof, making it easy for customers to browse, compare, and purchase the latest trends in apparel. Our service is designed to deliver a ',
-                        onEdit: () {},
-                        onDelete: () {},
-                      );
-                    },
-                  ),
-                ],
+
+              ColorTile(
+                label: 'Background Color',
+                color: Color(0xffbdcb4d),
+                onTap: () {},
+              ),
+              ColorTile(
+                label: 'All Headings Color',
+                color: Color(0xff000000),
+                onTap: () {},
+              ),
+              ColorTile(
+                label: 'All Text Color',
+                color: Color(0xff000000),
+                onTap: () {},
+              ),
+              ColorTile(
+                label: 'All Botton Color',
+                color: Color(0xffb04a4a),
+                onTap: () {},
+              ),
+              ColorTile(
+                label: 'Buttons Text Color',
+                color: Color(0xff19a363),
+                onTap: () {},
               ),
               Divider(),
-              SizedBox(height: 10.h),
-              Text(
-                "You Can add More Services from",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
-              ),
               SizedBox(height: 10.h),
               Center(
                 child: RoundButton(

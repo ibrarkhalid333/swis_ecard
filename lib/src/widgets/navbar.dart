@@ -6,6 +6,8 @@ import 'package:swisecard/src/ecard/screens/create_ecard.dart';
 import 'package:swisecard/src/ecard/screens/manage_ecard.dart';
 import 'package:swisecard/src/edit-card/screens/basic_info.dart';
 import 'package:swisecard/src/edit-card/screens/ecard_services.dart';
+import 'package:swisecard/src/edit-card/screens/edit_profile.dart';
+import 'package:swisecard/src/edit-card/screens/edit_theme.dart';
 import 'package:swisecard/src/edit-card/screens/media.dart';
 import 'package:swisecard/src/edit-card/screens/save_in_contact.dart';
 import 'package:swisecard/src/widgets/list_tile_widget.dart';
@@ -112,12 +114,22 @@ class CustomDrawer extends StatelessWidget {
                 title: 'Services',
               ),
               ListTileWidget(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => EditProfile()),
+                  );
+                },
                 icon: Icons.image,
                 title: 'Cover & Profile',
               ),
               ListTileWidget(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => EditTheme()),
+                  );
+                },
                 icon: Icons.format_paint,
                 title: 'Theme',
               ),
