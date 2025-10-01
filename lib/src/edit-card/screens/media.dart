@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
+import 'package:swisecard/src/edit-card/widgets/media_dialogue.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
@@ -130,7 +131,14 @@ class EditMedia extends StatelessWidget {
                   width: 150.w,
                   height: 40.h,
                   title: 'Add More Media',
-                  onPress: () {},
+                  onPress: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return MediaDialogue();
+                      },
+                    );
+                  },
                 ),
               ),
             ],

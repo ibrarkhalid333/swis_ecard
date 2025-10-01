@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/src/edit-card/widgets/expand_content_card.dart';
-import 'package:swisecard/src/edit-card/widgets/servicedialogue.dart';
+import 'package:swisecard/src/edit-card/widgets/color_tile.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
-class EditServices extends StatelessWidget {
-  const EditServices({super.key});
+class QrCode extends StatelessWidget {
+  const QrCode({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,47 +61,41 @@ class EditServices extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 15.h),
-              Column(
-                children: [
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 2,
-                    itemBuilder: (context, index) {
-                      return ExpandableContentCard(
-                        title: 'XYZ',
-                        content:
-                            'K2 E-Commerce K2 E-Commerce is a multi-brand online shopping platform that provides customers with access to a wide variety of clothing and fashion products. The platform brings together different brands under one digital roof, making it easy for customers to browse, compare, and purchase the latest trends in apparel. Our service is designed to deliver a ',
-                        onEdit: () {},
-                        onDelete: () {},
-                      );
-                    },
-                  ),
-                ],
+
+              ColorTile(
+                label: 'QR Background Color',
+                color: Color(0xffbdcb4d),
+                onTap: () {},
               ),
               Divider(),
-              SizedBox(height: 10.h),
-              Text(
-                "You Can add More Services from",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
+              ColorTile(
+                label: 'QR Text Colorr',
+                color: Color(0xff000000),
+                onTap: () {},
               ),
+
+              Divider(),
               SizedBox(height: 10.h),
               Center(
                 child: RoundButton(
                   width: 150.w,
                   height: 40.h,
-                  title: 'Add More Services',
-                  onPress: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return ServiceDialog();
-                      },
-                    );
-                  },
+                  title: 'Set Colors',
+                  onPress: () {},
                 ),
               ),
+              SizedBox(height: 30.h),
+              Container(
+                height: 200.h,
+                decoration: BoxDecoration(
+                  color: Appcolors.secondaryTextColor,
+                  border: Border.all(width: 2.sp),
+                ),
+                child: Center(child: Text("Save QR Code")),
+              ),
+              SizedBox(height: 20.h),
+              RoundButton(title: 'Download QR Code', onPress: () {}),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

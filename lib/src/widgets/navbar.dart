@@ -4,11 +4,14 @@ import 'package:swisecard/core/res/colors/appColors.dart';
 import 'package:swisecard/src/dashboard/dashboard.dart';
 import 'package:swisecard/src/ecard/screens/create_ecard.dart';
 import 'package:swisecard/src/ecard/screens/manage_ecard.dart';
+import 'package:swisecard/src/edit-card/screens/analytics.dart';
 import 'package:swisecard/src/edit-card/screens/basic_info.dart';
 import 'package:swisecard/src/edit-card/screens/ecard_services.dart';
 import 'package:swisecard/src/edit-card/screens/edit_profile.dart';
+import 'package:swisecard/src/edit-card/screens/card_settings.dart';
 import 'package:swisecard/src/edit-card/screens/edit_theme.dart';
 import 'package:swisecard/src/edit-card/screens/media.dart';
+import 'package:swisecard/src/edit-card/screens/qr_code.dart';
 import 'package:swisecard/src/edit-card/screens/save_in_contact.dart';
 import 'package:swisecard/src/widgets/list_tile_widget.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
@@ -134,17 +137,32 @@ class CustomDrawer extends StatelessWidget {
                 title: 'Theme',
               ),
               ListTileWidget(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => Analytics()),
+                  );
+                },
                 icon: Icons.analytics_sharp,
                 title: 'Analytics & Info',
               ),
               ListTileWidget(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => QrCode()),
+                  );
+                },
                 icon: Icons.qr_code,
                 title: 'QR Code',
               ),
               ListTileWidget(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => CardSettings()),
+                  );
+                },
                 icon: Icons.settings,
                 title: 'Settings',
               ),

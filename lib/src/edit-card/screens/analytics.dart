@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/src/edit-card/widgets/expand_content_card.dart';
-import 'package:swisecard/src/edit-card/widgets/servicedialogue.dart';
+import 'package:swisecard/src/edit-card/widgets/stat_card..dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
-class EditServices extends StatelessWidget {
-  const EditServices({super.key});
+class Analytics extends StatelessWidget {
+  Analytics({super.key});
+  final info = {
+    'BECID': '38',
+    'eCar ID': '8244',
+    'Expiry Date': 'No Expiry Date Set Yet',
+    'Creation date': '25 Sep, 2025',
+    'Last Update': '10:00 AM / 30 Sep, 2025',
+    'Last Login IP': 'No IP Found',
+    'Swis eCard-URL': 'https://swisecard.com/view/8244',
+    'Swis eCard Old URL': 'https://swisecard.com/view/8244',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -62,47 +71,64 @@ class EditServices extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 15.h),
-              Column(
-                children: [
-                  ListView.builder(
-                    shrinkWrap: true,
+              Text(
+                "Analytics",
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 5.h),
+
+              Card(
+                elevation: 2,
+                child: Container(
+                  height: 200.h,
+                  padding: EdgeInsets.all(10.sp),
+                  //decoration: BoxDecoration(border: Border.all(width: 1.0)),
+                  child: GridView.builder(
+                    itemCount: 4,
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 150.w,
+                      crossAxisSpacing: 10.w,
+                      mainAxisSpacing: 2.h,
+                      childAspectRatio: 1.5,
+                    ),
+
+                    shrinkWrap: false,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 2,
                     itemBuilder: (context, index) {
-                      return ExpandableContentCard(
-                        title: 'XYZ',
-                        content:
-                            'K2 E-Commerce K2 E-Commerce is a multi-brand online shopping platform that provides customers with access to a wide variety of clothing and fashion products. The platform brings together different brands under one digital roof, making it easy for customers to browse, compare, and purchase the latest trends in apparel. Our service is designed to deliver a ',
-                        onEdit: () {},
-                        onDelete: () {},
+                      return StatCard(
+                        icon: Icons.remove_red_eye_outlined,
+                        value: 6,
+                        label: 'Views',
                       );
                     },
                   ),
-                ],
-              ),
-              Divider(),
-              SizedBox(height: 10.h),
-              Text(
-                "You Can add More Services from",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10.h),
-              Center(
-                child: RoundButton(
-                  width: 150.w,
-                  height: 40.h,
-                  title: 'Add More Services',
-                  onPress: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return ServiceDialog();
-                      },
-                    );
-                  },
                 ),
               ),
+              SizedBox(height: 10.h),
+              Text(
+                "Information",
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              ),
+
+              SizedBox(height: 5.h),
+              Card(
+                elevation: 2,
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(15.sp, 5.sp, 15.sp, 5.sp),
+                  child: Column(
+                    children: info.entries.map((entry) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(entry.key, style: TextStyle(fontSize: 11.sp)),
+                          Text(entry.value, style: TextStyle(fontSize: 11.sp)),
+                        ],
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.h),
             ],
           ),
         ),
