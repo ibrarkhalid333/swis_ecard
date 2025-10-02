@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/assets/image_assets.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
+import 'package:swisecard/core/res/style/app_text_styles.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
@@ -24,21 +25,17 @@ class EditProfile extends StatelessWidget {
               Text(
                 "Ibrar Khalid Farooqi - K2 Ecommerce",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                style: AppTextStyles.mainHeading,
               ),
               SizedBox(height: 15.h),
-              Text(
-                "Swiss eCard Url",
-
-                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
-              ),
+              Text("Swiss eCard Url", style: AppTextStyles.subHeading),
               Container(
                 height: 40.h,
                 child: Center(
                   child: Text(textAlign: TextAlign.center, 'Url To be copied'),
                 ),
                 decoration: BoxDecoration(
-                  color: Appcolors.blackColor.withAlpha(20),
+                  color: AppColors.blackColor.withAlpha(20),
                   borderRadius: BorderRadius.circular(8.sp),
                 ),
               ),
@@ -62,10 +59,7 @@ class EditProfile extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 15.h),
-              Text(
-                "Cover Image",
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-              ),
+              Text("Cover Image", style: AppTextStyles.subHeading),
               SizedBox(height: 10.h),
               Container(
                 height: 150.h,
@@ -87,10 +81,7 @@ class EditProfile extends StatelessWidget {
               ),
               Divider(),
               SizedBox(height: 15.h),
-              Text(
-                "Profile Image",
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-              ),
+              Text("Profile Image", style: AppTextStyles.subHeading),
               SizedBox(height: 10.h),
               Center(
                 child: Container(

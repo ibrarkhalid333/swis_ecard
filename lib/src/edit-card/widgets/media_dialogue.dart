@@ -28,6 +28,10 @@ class _MediaDialogueState extends State<MediaDialogue> {
     'Gradient Fill',
     'Text Only',
   ];
+  // final List<Color> pickedColors = [
+
+  // ];
+  Map<String, Color> pickedColors = {"red": Colors.red};
   String? selectedMedia;
   String? selectedButtonStyle;
 

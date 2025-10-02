@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/assets/image_assets.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/src/auth/screens/signup_screen.dart';
-import 'package:swisecard/src/dashboard/dashboard.dart';
+import 'package:swisecard/core/res/routes/aapp_routes.dart';
+import 'package:swisecard/core/res/routes/navigation_service.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.fromLTRB(25.sp, 20.sp, 25.sp, 10.sp),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(ImageAssets.logo, width: 250.sp),
               SizedBox(height: 50.h),
@@ -74,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: const Text(
                       'Forgot Password?',
-                      style: TextStyle(color: Appcolors.secondaryTextColor),
+                      style: TextStyle(color: AppColors.secondaryTextColor),
                     ),
                   ),
                 ],
@@ -84,9 +84,9 @@ class LoginScreen extends StatelessWidget {
               RoundButton(
                 width: double.infinity,
                 onPress: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => Dashboard()),
+                    AappRoutes.dashBoard,
                   );
                 },
                 title: "LOGIN",
@@ -101,15 +101,15 @@ class LoginScreen extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignupScreen()),
-                      );
+                      NavigationService.pushReplacement(
+                    context,
+                    AappRoutes.signUp,
+                  );
                     },
                     child: Text(
                       "Sign up",
                       style: TextStyle(
-                        color: Appcolors.secondaryTextColor,
+                        color: AppColors.secondaryTextColor,
                         fontSize: 17.sp,
                       ),
                     ),

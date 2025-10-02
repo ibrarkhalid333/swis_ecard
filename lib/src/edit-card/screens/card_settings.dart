@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
+import 'package:swisecard/core/res/style/app_text_styles.dart';
 import 'package:swisecard/src/edit-card/widgets/security_radio_tile.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
@@ -90,20 +91,17 @@ class _CardSettingState extends State<CardSettings> {
               Text(
                 "Ibrar Khalid Farooqi - K2 Ecommerce",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                style: AppTextStyles.mainHeading,
               ),
               SizedBox(height: 15.h),
-              Text(
-                "Swiss eCard Url",
-                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
-              ),
+              Text("Swiss eCard Url", style: AppTextStyles.subHeading),
               Container(
                 height: 40.h,
                 child: Center(
                   child: Text(textAlign: TextAlign.center, 'Url To be copied'),
                 ),
                 decoration: BoxDecoration(
-                  color: Appcolors.blackColor.withAlpha(20),
+                  color: AppColors.blackColor.withAlpha(20),
                   borderRadius: BorderRadius.circular(8.sp),
                 ),
               ),
@@ -129,10 +127,7 @@ class _CardSettingState extends State<CardSettings> {
               SizedBox(height: 15.h),
               Divider(),
               SizedBox(height: 10.h),
-              Text(
-                "Username",
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-              ),
+              Text("Username", style: AppTextStyles.subHeading),
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
@@ -173,10 +168,7 @@ class _CardSettingState extends State<CardSettings> {
               RoundButton(title: 'Update Username', onPress: () {}),
               Divider(),
               SizedBox(height: 30.h),
-              Text(
-                "Security Type",
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-              ),
+              Text("Security Type", style: AppTextStyles.subHeading),
               SizedBox(height: 10.h),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -272,10 +264,7 @@ class _CardSettingState extends State<CardSettings> {
               ),
               Divider(),
               SizedBox(height: 30.h),
-              Text(
-                "Contact Form",
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-              ),
+              Text("Contact Form", style: AppTextStyles.subHeading),
               SizedBox(height: 5.h),
               Container(
                 padding: EdgeInsets.all(10.sp),

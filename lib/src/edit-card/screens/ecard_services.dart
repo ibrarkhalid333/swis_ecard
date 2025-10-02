@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
+import 'package:swisecard/core/res/style/app_text_styles.dart';
 import 'package:swisecard/src/edit-card/widgets/expand_content_card.dart';
 import 'package:swisecard/src/edit-card/widgets/servicedialogue.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
@@ -25,12 +26,12 @@ class EditServices extends StatelessWidget {
               Text(
                 "Ibrar Khalid Farooqi - K2 Ecommerce",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                style: AppTextStyles.mainHeading,
               ),
               SizedBox(height: 15.h),
               Text(
                 "Swiss eCard Url",
-                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+                style: AppTextStyles.subHeading
               ),
               Container(
                 height: 40.h,
@@ -38,7 +39,7 @@ class EditServices extends StatelessWidget {
                   child: Text(textAlign: TextAlign.center, 'Url To be copied'),
                 ),
                 decoration: BoxDecoration(
-                  color: Appcolors.blackColor.withAlpha(20),
+                  color: AppColors.blackColor.withAlpha(20),
                   borderRadius: BorderRadius.circular(8.sp),
                 ),
               ),

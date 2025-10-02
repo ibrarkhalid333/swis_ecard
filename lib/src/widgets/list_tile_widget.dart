@@ -18,11 +18,11 @@ class ListTileWidget extends StatelessWidget {
     return ListTile(
       leading: Icon(
         icon,
-        color: Appcolors.primaryTextColor,
+        color: AppColors.primaryTextColor,
       ),
       title: Text(
         title,
-        style: TextStyle(color: Appcolors.primaryTextColor),
+        style: TextStyle(color: AppColors.primaryTextColor),
       ),
       onTap: onTap,
     );

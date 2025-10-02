@@ -4,8 +4,8 @@ import 'package:swisecard/core/res/colors/appColors.dart';
 class RoundButton extends StatelessWidget {
   RoundButton({
     super.key,
-    this.textColor = Appcolors.primaryTextColor,
-    this.buttonColor = Appcolors.primaryButtonColor,
+    this.textColor = AppColors.primaryTextColor,
+    this.buttonColor = AppColors.primaryButtonColor,
     this.title = '',
     required this.onPress,
     this.width = 30,

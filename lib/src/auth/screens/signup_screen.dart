@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/assets/icon_Assets.dart';
 import 'package:swisecard/core/res/assets/image_assets.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/src/auth/screens/login_screen.dart';
+import 'package:swisecard/core/res/routes/aapp_routes.dart';
+import 'package:swisecard/core/res/routes/navigation_service.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class SignupScreen extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.fromLTRB(25.sp, 20.sp, 25.sp, 10.sp),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(ImageAssets.logo, width: 250.sp),
               SizedBox(height: 10.h),
@@ -109,15 +110,15 @@ class SignupScreen extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
+                      NavigationService.pushReplacement(
+                    context,
+                    AappRoutes.login,
+                  );
                     },
                     child: Text(
                       "login",
                       style: TextStyle(
-                        color: Appcolors.secondaryTextColor,
+                        color: AppColors.secondaryTextColor,
                         fontSize: 17.sp,
                       ),
                     ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
+import 'package:swisecard/core/res/style/app_text_styles.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
@@ -23,12 +24,12 @@ class SaveInContact extends StatelessWidget {
               Text(
                 "Ibrar Khalid Farooqi - K2 Ecommerce",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                style: AppTextStyles.mainHeading
               ),
               SizedBox(height: 15.h),
               Text(
                 "Swiss eCard Url",
-                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+                style: AppTextStyles.subHeading
               ),
               Container(
                 height: 30.h,
@@ -36,7 +37,7 @@ class SaveInContact extends StatelessWidget {
                   child: Text(textAlign: TextAlign.center, 'Url To be copied'),
                 ),
                 decoration: BoxDecoration(
-                  color: Appcolors.blackColor.withAlpha(20),
+                  color: AppColors.blackColor.withAlpha(20),
                   borderRadius: BorderRadius.circular(8.sp),
                 ),
               ),
@@ -86,6 +87,7 @@ class SaveInContact extends StatelessWidget {
                     ),
                     SizedBox(height: 15.h),
                     TextFormField(
+                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Contact # 01',
@@ -93,6 +95,7 @@ class SaveInContact extends StatelessWidget {
                     ),
                     SizedBox(height: 15.h),
                     TextFormField(
+                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Contact # 02',
@@ -100,6 +103,7 @@ class SaveInContact extends StatelessWidget {
                     ),
                     SizedBox(height: 15.h),
                     TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Contact Email',
@@ -107,6 +111,7 @@ class SaveInContact extends StatelessWidget {
                     ),
                     SizedBox(height: 15.h),
                     TextFormField(
+                      keyboardType: TextInputType.streetAddress,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Address',
@@ -114,6 +119,7 @@ class SaveInContact extends StatelessWidget {
                     ),
                     SizedBox(height: 15.h),
                     TextFormField(
+                      keyboardType: TextInputType.url,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Website',

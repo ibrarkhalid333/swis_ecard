@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
+import 'package:swisecard/core/res/style/app_text_styles.dart';
 import 'package:swisecard/src/edit-card/widgets/media_dialogue.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
@@ -24,12 +25,12 @@ class EditMedia extends StatelessWidget {
               Text(
                 "Ibrar Khalid Farooqi - K2 Ecommerce",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                style: AppTextStyles.mainHeading
               ),
               SizedBox(height: 15.h),
               Text(
                 "Swiss eCard Url",
-                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+                style: AppTextStyles.subHeading
               ),
               Container(
                 height: 40.h,
@@ -37,7 +38,7 @@ class EditMedia extends StatelessWidget {
                   child: Text(textAlign: TextAlign.center, 'Url To be copied'),
                 ),
                 decoration: BoxDecoration(
-                  color: Appcolors.blackColor.withAlpha(20),
+                  color: AppColors.blackColor.withAlpha(20),
                   borderRadius: BorderRadius.circular(8.sp),
                 ),
               ),
@@ -83,7 +84,7 @@ class EditMedia extends StatelessWidget {
                             height: 70.sp,
                             child: Center(child: Icon(Icons.phone)),
                             decoration: BoxDecoration(
-                              color: Appcolors.greenColor,
+                              color: AppColors.greenColor,
                               borderRadius: BorderRadius.circular(15),
                             ),
                           ),
@@ -101,7 +102,14 @@ class EditMedia extends StatelessWidget {
                                 width: 70.w,
                                 height: 30.h,
                                 title: "Edit",
-                                onPress: () {},
+                                onPress: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return MediaDialogue();
+                                    },
+                                  );
+                                },
                               ),
 
                               RoundButton(

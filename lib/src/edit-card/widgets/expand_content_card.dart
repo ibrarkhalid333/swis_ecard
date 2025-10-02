@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:swisecard/src/edit-card/widgets/servicedialogue.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
 class ExpandableContentCard extends StatefulWidget {
@@ -62,7 +63,14 @@ class _ExpandableContentCardState extends State<ExpandableContentCard> {
                 width: 60.w,
                 height: 30.h,
                 title: 'Edit',
-                onPress: () {},
+                onPress: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ServiceDialog();
+                    },
+                  );
+                },
               ),
               SizedBox(width: 12),
               RoundButton(

@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/src/dashboard/dashboard.dart';
-import 'package:swisecard/src/ecard/screens/create_ecard.dart';
-import 'package:swisecard/src/ecard/screens/manage_ecard.dart';
-import 'package:swisecard/src/edit-card/screens/analytics.dart';
-import 'package:swisecard/src/edit-card/screens/basic_info.dart';
-import 'package:swisecard/src/edit-card/screens/ecard_services.dart';
-import 'package:swisecard/src/edit-card/screens/edit_profile.dart';
-import 'package:swisecard/src/edit-card/screens/card_settings.dart';
-import 'package:swisecard/src/edit-card/screens/edit_theme.dart';
-import 'package:swisecard/src/edit-card/screens/media.dart';
-import 'package:swisecard/src/edit-card/screens/qr_code.dart';
-import 'package:swisecard/src/edit-card/screens/save_in_contact.dart';
+import 'package:swisecard/core/res/routes/aapp_routes.dart';
+import 'package:swisecard/core/res/routes/navigation_service.dart';
 import 'package:swisecard/src/widgets/list_tile_widget.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
@@ -24,7 +14,7 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       child: SingleChildScrollView(
         child: Container(
-          color: Appcolors.blackColor,
+          color: AppColors.blackColor,
           padding: EdgeInsets.fromLTRB(20.sp, 15.sp, 5.sp, 15.sp),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,17 +22,14 @@ class CustomDrawer extends StatelessWidget {
               Text(
                 "SwisAdmin",
                 style: TextStyle(
-                  color: Appcolors.primaryTextColor,
+                  color: AppColors.primaryTextColor,
                   fontSize: 20.sp,
                 ),
               ),
               SizedBox(height: 15.h),
               ListTileWidget(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Dashboard()),
-                  );
+                  NavigationService.push(context, AappRoutes.dashBoard);
                 },
                 icon: Icons.dashboard,
                 title: 'Dashboard',
@@ -50,13 +37,13 @@ class CustomDrawer extends StatelessWidget {
               SizedBox(height: 25.h),
               Text(
                 "My Swis Card",
-                style: TextStyle(color: Appcolors.primaryTextColor),
+                style: TextStyle(color: AppColors.primaryTextColor),
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => CreateEcard()),
+                    AappRoutes.createEcard,
                   );
                 },
                 icon: Icons.wallet,
@@ -64,9 +51,9 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => ManageEcard()),
+                    AappRoutes.manageEcard,
                   );
                 },
                 icon: Icons.add_business,
@@ -74,13 +61,13 @@ class CustomDrawer extends StatelessWidget {
               ),
               Text(
                 "Edit Ecard",
-                style: TextStyle(color: Appcolors.primaryTextColor),
+                style: TextStyle(color: AppColors.primaryTextColor),
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => EditBasicInfo()),
+                    AappRoutes.editBasicInfo,
                   );
                 },
                 icon: Icons.info_outline,
@@ -88,9 +75,9 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => SaveInContact()),
+                    AappRoutes.saveInContact,
                   );
                 },
                 icon: Icons.person,
@@ -98,9 +85,9 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => EditMedia()),
+                    AappRoutes.editMedia,
                   );
                 },
                 icon: Icons.dashboard,
@@ -108,9 +95,9 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => EditServices()),
+                    AappRoutes.editServices,
                   );
                 },
                 icon: Icons.dashboard,
@@ -118,9 +105,9 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => EditProfile()),
+                    AappRoutes.editProfile,
                   );
                 },
                 icon: Icons.image,
@@ -128,9 +115,9 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => EditTheme()),
+                    AappRoutes.editTheme,
                   );
                 },
                 icon: Icons.format_paint,
@@ -138,9 +125,9 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => Analytics()),
+                    AappRoutes.analytixs,
                   );
                 },
                 icon: Icons.analytics_sharp,
@@ -148,19 +135,16 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => QrCode()),
-                  );
+                  NavigationService.pushReplacement(context, AappRoutes.qrCode);
                 },
                 icon: Icons.qr_code,
                 title: 'QR Code',
               ),
               ListTileWidget(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  NavigationService.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => CardSettings()),
+                    AappRoutes.cardSettings,
                   );
                 },
                 icon: Icons.settings,
@@ -170,7 +154,7 @@ class CustomDrawer extends StatelessWidget {
               Center(
                 child: RoundButton(
                   width: 200.w,
-                  buttonColor: Appcolors.greyColor,
+                  buttonColor: AppColors.greyColor,
                   onPress: () {},
                   title: 'Helo Center',
                 ),

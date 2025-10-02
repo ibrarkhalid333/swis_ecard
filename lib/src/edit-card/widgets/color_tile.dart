@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:swisecard/core/res/style/app_text_styles.dart';
 
 class ColorTile extends StatelessWidget {
   final String label;
@@ -23,7 +24,7 @@ class ColorTile extends StatelessWidget {
           // Title
           Text(
             label,
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+            style: AppTextStyles.subHeading
           ),
           const SizedBox(height: 8),
 
