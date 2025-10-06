@@ -13,7 +13,7 @@ import 'package:swisecard/src/edit-card/screens/media.dart';
 import 'package:swisecard/src/edit-card/screens/qr_code.dart';
 import 'package:swisecard/src/edit-card/screens/save_in_contact.dart';
 
-class AappRoutes {
+class AppRoutes {
   static const dashBoard = Dashboard();
   static const createEcard = CreateEcard();
   static const manageEcard = ManageEcard();

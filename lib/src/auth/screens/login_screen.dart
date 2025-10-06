@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:swisecard/core/res/assets/image_assets.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/core/res/routes/aapp_routes.dart';
+import 'package:swisecard/core/res/routes/app_routes.dart';
 import 'package:swisecard/core/res/routes/navigation_service.dart';
-import 'package:swisecard/core/utils/utils.dart';
 import 'package:swisecard/src/auth/controllers/login_controller.dart';
 import 'package:swisecard/src/auth/services/auth_services.dart';
+import 'package:swisecard/src/auth/widgets/text_form_field_widget.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -49,16 +49,15 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Obx(
-                        () => TextFormField(
+                        () => TextFormFieldWidget(
                           controller: emailController,
-                          focusNode: loginController.emailFocusNode.value,
+                          currentFocusNode:
+                              loginController.emailFocusNode.value,
+                          nextFocusNode:
+                              loginController.passwordFocusNode.value,
                           keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            labelText: 'Email or Mobile number',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
+
+                          labelText: 'Email or Mobile number',
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Email or Mobile';
@@ -73,27 +72,18 @@ class LoginScreen extends StatelessWidget {
                               }
                             }
                           },
-                          onFieldSubmitted: (value) {
-                            Utils.fieldFocusChange(
-                              context,
-                              loginController.emailFocusNode.value,
-                              loginController.passwordFocusNode.value,
-                            );
-                          },
                         ),
                       ),
                       SizedBox(height: 15.h),
                       Obx(
-                        () => TextFormField(
+                        () => TextFormFieldWidget(
                           controller: passwordController,
-                          focusNode: loginController.passwordFocusNode.value,
+                          currentFocusNode:
+                              loginController.passwordFocusNode.value,
                           obscureText: true,
-                          decoration: InputDecoration(
-                            labelText: 'Enter Password',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
+                          labelText: 'Enter Password',
+                          isLastField: true,
+
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Password';
@@ -144,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                     if (loginController.form_key.currentState!.validate()) {
                       NavigationService.pushReplacement(
                         context,
-                        AappRoutes.dashBoard,
+                        AppRoutes.dashBoard,
                       );
                     }
                   },
@@ -162,7 +152,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         NavigationService.pushReplacement(
                           context,
-                          AappRoutes.signUp,
+                          AppRoutes.signUp,
                         );
                       },
                       child: Text(

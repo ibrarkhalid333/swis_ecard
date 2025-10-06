@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/core/res/routes/aapp_routes.dart';
+import 'package:swisecard/core/res/routes/app_routes.dart';
 import 'package:swisecard/core/res/routes/navigation_service.dart';
 import 'package:swisecard/src/widgets/list_tile_widget.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
@@ -29,7 +29,7 @@ class CustomDrawer extends StatelessWidget {
               SizedBox(height: 15.h),
               ListTileWidget(
                 onTap: () {
-                  NavigationService.push(context, AappRoutes.dashBoard);
+                  NavigationService.push(context, AppRoutes.dashBoard);
                 },
                 icon: Icons.dashboard,
                 title: 'Dashboard',
@@ -43,7 +43,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.createEcard,
+                    AppRoutes.createEcard,
                   );
                 },
                 icon: Icons.wallet,
@@ -53,7 +53,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.manageEcard,
+                    AppRoutes.manageEcard,
                   );
                 },
                 icon: Icons.add_business,
@@ -67,7 +67,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.editBasicInfo,
+                    AppRoutes.editBasicInfo,
                   );
                 },
                 icon: Icons.info_outline,
@@ -77,7 +77,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.saveInContact,
+                    AppRoutes.saveInContact,
                   );
                 },
                 icon: Icons.person,
@@ -87,7 +87,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.editMedia,
+                    AppRoutes.editMedia,
                   );
                 },
                 icon: Icons.dashboard,
@@ -97,7 +97,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.editServices,
+                    AppRoutes.editServices,
                   );
                 },
                 icon: Icons.dashboard,
@@ -107,7 +107,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.editProfile,
+                    AppRoutes.editProfile,
                   );
                 },
                 icon: Icons.image,
@@ -117,7 +117,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.editTheme,
+                    AppRoutes.editTheme,
                   );
                 },
                 icon: Icons.format_paint,
@@ -127,7 +127,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.analytixs,
+                    AppRoutes.analytixs,
                   );
                 },
                 icon: Icons.analytics_sharp,
@@ -135,7 +135,7 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTileWidget(
                 onTap: () {
-                  NavigationService.pushReplacement(context, AappRoutes.qrCode);
+                  NavigationService.pushReplacement(context, AppRoutes.qrCode);
                 },
                 icon: Icons.qr_code,
                 title: 'QR Code',
@@ -144,7 +144,7 @@ class CustomDrawer extends StatelessWidget {
                 onTap: () {
                   NavigationService.pushReplacement(
                     context,
-                    AappRoutes.cardSettings,
+                    AppRoutes.cardSettings,
                   );
                 },
                 icon: Icons.settings,

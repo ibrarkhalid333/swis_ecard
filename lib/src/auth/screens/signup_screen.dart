@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import 'package:swisecard/core/res/assets/icon_Assets.dart';
 import 'package:swisecard/core/res/assets/image_assets.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
-import 'package:swisecard/core/res/routes/aapp_routes.dart';
+import 'package:swisecard/core/res/routes/app_routes.dart';
 import 'package:swisecard/core/res/routes/navigation_service.dart';
-import 'package:swisecard/core/utils/utils.dart';
 import 'package:swisecard/src/auth/controllers/signup_controller.dart';
 import 'package:swisecard/src/auth/services/auth_services.dart';
+import 'package:swisecard/src/auth/widgets/text_form_field_widget.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -45,40 +45,28 @@ class SignupScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Obx(
-                        () => TextFormField(
+                        () => TextFormFieldWidget(
                           controller: nameController,
-                          focusNode: signUpController.nameFocusNode.value,
-                          decoration: InputDecoration(
-                            labelText: 'Your Full Name',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
+                          currentFocusNode:
+                              signUpController.nameFocusNode.value,
+                          labelText: "Your Full Name",
+                          nextFocusNode: signUpController.emailFocusNode.value,
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Full Name';
                             }
                           },
-                          onFieldSubmitted: (value) {
-                            Utils.fieldFocusChange(
-                              context,
-                              signUpController.nameFocusNode.value,
-                              signUpController.emailFocusNode.value,
-                            );
-                          },
                         ),
                       ),
                       SizedBox(height: 10.h),
                       Obx(
-                        () => TextFormField(
+                        () => TextFormFieldWidget(
                           controller: emailController,
-                          focusNode: signUpController.emailFocusNode.value,
-                          decoration: InputDecoration(
-                            labelText: 'Email Addressr',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          currentFocusNode:
+                              signUpController.emailFocusNode.value,
+                          nextFocusNode: signUpController.mobileFocusNode.value,
+                          labelText: 'Email Addressr',
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Email';
@@ -91,52 +79,36 @@ class SignupScreen extends StatelessWidget {
                               }
                             }
                           },
-                          onFieldSubmitted: (value) {
-                            Utils.fieldFocusChange(
-                              context,
-                              signUpController.emailFocusNode.value,
-                              signUpController.mobileFocusNode.value,
-                            );
-                          },
                         ),
                       ),
                       SizedBox(height: 15.h),
                       Obx(
-                        () => TextFormField(
+                        () => TextFormFieldWidget(
                           controller: mobileController,
-                          focusNode: signUpController.mobileFocusNode.value,
-                          decoration: InputDecoration(
-                            labelText: 'Your Mobile Number',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
+                          keyboardType: TextInputType.phone,
+                          currentFocusNode:
+                              signUpController.mobileFocusNode.value,
+                          nextFocusNode:
+                              signUpController.passwordFocusNode.value,
+                          labelText: 'Your Mobile Number',
+
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Mobile Number';
                             }
                           },
-                          onFieldSubmitted: (value) {
-                            Utils.fieldFocusChange(
-                              context,
-                              signUpController.mobileFocusNode.value,
-                              signUpController.passwordFocusNode.value,
-                            );
-                          },
                         ),
                       ),
                       SizedBox(height: 10.h),
                       Obx(
-                        () => TextFormField(
+                        () => TextFormFieldWidget(
                           controller: passwordController,
-                          focusNode: signUpController.passwordFocusNode.value,
+                          currentFocusNode:
+                              signUpController.passwordFocusNode.value,
+                          nextFocusNode:
+                              signUpController.confirmPasswordFocusNode.value,
                           obscureText: true,
-                          decoration: InputDecoration(
-                            labelText: 'Enter Password',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
+                          labelText: 'Please Enter Password',
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Password';
@@ -149,59 +121,58 @@ class SignupScreen extends StatelessWidget {
                               }
                             }
                           },
-                          onFieldSubmitted: (value) {
-                            Utils.fieldFocusChange(
-                              context,
-                              signUpController.passwordFocusNode.value,
-                              signUpController.confirmPasswordFocusNode.value,
-                            );
-                          },
                         ),
                       ),
                       SizedBox(height: 5.h),
                       Obx(
-                        () => TextFormField(
+                        () => TextFormFieldWidget(
                           controller: confirmPasswordController,
-                          focusNode:
+                          currentFocusNode:
                               signUpController.confirmPasswordFocusNode.value,
+                          nextFocusNode:
+                              signUpController.referalCodeFocusNode.value,
                           obscureText: true,
-                          decoration: InputDecoration(
-                            labelText: 'Confirm Password',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
+                          labelText: 'Confirm Password',
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return 'Please Enter Confirmed Password';
+                              return 'Enter Confirmed Password';
+                            } else {
+                              bool isValid = signupServices.validatePassword(
+                                confirmPasswordController.text,
+                              );
+                              if (!isValid) {
+                                return 'Invalid Password';
+                              }
                             }
-                          },
-                          onFieldSubmitted: (value) {
-                            Utils.fieldFocusChange(
-                              context,
-                              signUpController.confirmPasswordFocusNode.value,
-                              signUpController.referalCodeFocusNode.value,
-                            );
                           },
                         ),
                       ),
                       SizedBox(height: 5.h),
                       Obx(
-                        () => TextFormField(
+                        () => TextFormFieldWidget(
                           controller: referalCodeController,
-                          focusNode:
+                          currentFocusNode:
                               signUpController.referalCodeFocusNode.value,
-                          decoration: InputDecoration(
-                            labelText: 'Referral Code (Optional)',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: () {},
-                              icon: ImageIcon(
-                                AssetImage(IconAssets.link2),
-                                size: 25.sp,
-                              ),
+                          labelText: 'Referal Text (Optional)',
+                          isLastField: true,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter Password';
+                            } else {
+                              bool isValid = signupServices.validatePassword(
+                                passwordController.text,
+                              );
+                              if (!isValid) {
+                                return 'Invalid Password';
+                              }
+                            }
+                          },
+
+                          suffixIcon: IconButton(
+                            onPressed: () {},
+                            icon: ImageIcon(
+                              AssetImage(IconAssets.link2),
+                              size: 25.sp,
                             ),
                           ),
                         ),
@@ -217,7 +188,7 @@ class SignupScreen extends StatelessWidget {
                     if (signUpController.form_key.currentState!.validate()) {
                       NavigationService.pushReplacement(
                         context,
-                        AappRoutes.login,
+                        AppRoutes.login,
                       );
                     }
                   },
@@ -235,7 +206,7 @@ class SignupScreen extends StatelessWidget {
                       onPressed: () {
                         NavigationService.pushReplacement(
                           context,
-                          AappRoutes.login,
+                          AppRoutes.login,
                         );
                       },
                       child: Text(
