@@ -1,5 +1,6 @@
 import 'package:swisecard/src/auth/screens/login_screen.dart';
 import 'package:swisecard/src/auth/screens/signup_screen.dart';
+import 'package:swisecard/src/auth/screens/test_screen.dart';
 import 'package:swisecard/src/dashboard/dashboard.dart';
 import 'package:swisecard/src/ecard/screens/create_ecard.dart';
 import 'package:swisecard/src/ecard/screens/manage_ecard.dart';
@@ -28,4 +29,5 @@ class AppRoutes {
   static final cardSettings = CardSettings();
   static final signUp = SignupScreen();
   static final login = LoginScreen();
+  static final testScreen = TestScreen();
 }

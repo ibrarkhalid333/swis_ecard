@@ -39,7 +39,7 @@ class SignupScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   "Unlock the full spectrum of our dynamic services by signing up.",
                 ),
-                SizedBox(height: 70.h),
+                SizedBox(height: 50.h),
                 Form(
                   key: signUpController.form_key,
                   child: Column(
@@ -54,6 +54,8 @@ class SignupScreen extends StatelessWidget {
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Full Name';
+                            } else {
+                              return null;
                             }
                           },
                         ),
@@ -76,6 +78,8 @@ class SignupScreen extends StatelessWidget {
                               );
                               if (!isValid) {
                                 return 'Enter a Valid Email';
+                              } else {
+                                return null;
                               }
                             }
                           },
@@ -95,6 +99,8 @@ class SignupScreen extends StatelessWidget {
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Mobile Number';
+                            } else {
+                              return null;
                             }
                           },
                         ),
@@ -118,6 +124,8 @@ class SignupScreen extends StatelessWidget {
                               );
                               if (!isValid) {
                                 return 'Invalid Password';
+                              } else {
+                                return null;
                               }
                             }
                           },
@@ -142,6 +150,8 @@ class SignupScreen extends StatelessWidget {
                               );
                               if (!isValid) {
                                 return 'Invalid Password';
+                              } else {
+                                return null;
                               }
                             }
                           },
@@ -164,6 +174,8 @@ class SignupScreen extends StatelessWidget {
                               );
                               if (!isValid) {
                                 return 'Invalid Password';
+                              } else {
+                                return null;
                               }
                             }
                           },

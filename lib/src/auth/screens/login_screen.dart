@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(ImageAssets.logo, width: 250.sp),
-                SizedBox(height: 50.h),
+                SizedBox(height: 40.h),
                 Text(
                   "Customer Login",
                   style: TextStyle(
@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   "Do you have Swismax Services? Do you want any service or control please log in.",
                 ),
-                SizedBox(height: 60.h),
+                SizedBox(height: 50.h),
 
                 Form(
                   key: loginController.form_key,
@@ -69,6 +69,8 @@ class LoginScreen extends StatelessWidget {
                               );
                               if (!isValid) {
                                 return 'Enter a Valid Email';
+                              } else {
+                                return null;
                               }
                             }
                           },
@@ -93,6 +95,8 @@ class LoginScreen extends StatelessWidget {
                               );
                               if (!isValid) {
                                 return 'Invalid Password';
+                              } else {
+                                return null;
                               }
                             }
                           },
@@ -132,9 +136,11 @@ class LoginScreen extends StatelessWidget {
                   width: double.infinity,
                   onPress: () async {
                     if (loginController.form_key.currentState!.validate()) {
+                      await loginController.getData();
                       NavigationService.pushReplacement(
                         context,
-                        AppRoutes.dashBoard,
+                        //AppRoutes.dashBoard,
+                        AppRoutes.testScreen,
                       );
                     }
                   },
@@ -165,6 +171,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                Obx(() => Container(child: Text(loginController.data.value))),
               ],
             ),
           ),
