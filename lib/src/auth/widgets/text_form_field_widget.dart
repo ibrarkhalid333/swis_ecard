@@ -3,7 +3,7 @@ import 'package:swisecard/core/utils/utils.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   const TextFormFieldWidget({
-    Key? key,
+    super.key,
     required this.controller,
     required this.currentFocusNode,
     this.nextFocusNode,
@@ -13,7 +13,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.isLastField = false,
     this.suffixIcon,
     this.keyboardType,
-  }) : super(key: key);
+  });
 
   final TextEditingController controller;
   final FocusNode currentFocusNode;

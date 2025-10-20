@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
 
 class RoundButton extends StatelessWidget {
-  RoundButton({
+  const RoundButton({
     super.key,
     this.textColor = AppColors.primaryTextColor,
     this.buttonColor = AppColors.primaryButtonColor,

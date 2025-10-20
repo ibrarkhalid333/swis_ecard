@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ServiceDialog extends StatefulWidget {
-  const ServiceDialog({Key? key}) : super(key: key);
+  const ServiceDialog({super.key});
 
   @override
   State<ServiceDialog> createState() => _ServiceDialogState();
@@ -155,15 +155,15 @@ class _ServiceDialogState extends State<ServiceDialog> {
             // Add your service logic here
             Navigator.of(context).pop();
           },
-          child: Text(
-            "Add Service",
-            style: TextStyle(fontSize: 14.sp, color: Colors.white),
-          ),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.r),
             ),
+          ),
+          child: Text(
+            "Add Service",
+            style: TextStyle(fontSize: 14.sp, color: Colors.white),
           ),
         ),
       ],

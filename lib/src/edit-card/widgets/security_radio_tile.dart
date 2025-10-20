@@ -9,14 +9,14 @@ class SecurityRadioTile extends StatelessWidget {
   final Widget? trailing;
 
   const SecurityRadioTile({
-    Key? key,
+    super.key,
     required this.value,
     required this.title,
     required this.selectedValue,
     required this.onChanged,
     this.child,
     this.trailing
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

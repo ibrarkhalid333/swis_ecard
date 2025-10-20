@@ -55,6 +55,7 @@ class SignupScreen extends StatelessWidget {
                             if (value!.isEmpty) {
                               return 'Please Enter Full Name';
                             } else {
+                              signUpController.setFullName(nameController.text);
                               return null;
                             }
                           },
@@ -79,6 +80,7 @@ class SignupScreen extends StatelessWidget {
                               if (!isValid) {
                                 return 'Enter a Valid Email';
                               } else {
+                                signUpController.setEmail(emailController.text);
                                 return null;
                               }
                             }
@@ -100,6 +102,9 @@ class SignupScreen extends StatelessWidget {
                             if (value!.isEmpty) {
                               return 'Please Enter Mobile Number';
                             } else {
+                              signUpController.setMobileNumber(
+                                mobileController.text,
+                              );
                               return null;
                             }
                           },
@@ -125,6 +130,9 @@ class SignupScreen extends StatelessWidget {
                               if (!isValid) {
                                 return 'Invalid Password';
                               } else {
+                                signUpController.setPassword(
+                                  passwordController.text,
+                                );
                                 return null;
                               }
                             }
@@ -151,6 +159,9 @@ class SignupScreen extends StatelessWidget {
                               if (!isValid) {
                                 return 'Invalid Password';
                               } else {
+                                signUpController.setConfirm(
+                                  confirmPasswordController.text,
+                                );
                                 return null;
                               }
                             }
@@ -196,12 +207,14 @@ class SignupScreen extends StatelessWidget {
                 SizedBox(height: 10.h),
                 RoundButton(
                   width: double.infinity,
+                  loading: signUpController.loading.value,
                   onPress: () {
                     if (signUpController.form_key.currentState!.validate()) {
-                      NavigationService.pushReplacement(
-                        context,
-                        AppRoutes.login,
-                      );
+                      signUpController.signUp(context);
+                      // NavigationService.pushReplacement(
+                      //   context,
+                      //   AppRoutes.login,
+                      // );
                     }
                   },
                   title: "SIGNUP",

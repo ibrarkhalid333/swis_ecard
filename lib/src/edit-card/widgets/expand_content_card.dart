@@ -10,12 +10,12 @@ class ExpandableContentCard extends StatefulWidget {
   final VoidCallback onDelete;
 
   const ExpandableContentCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.content,
     required this.onEdit,
     required this.onDelete,
-  }) : super(key: key);
+  });
 
   @override
   State<ExpandableContentCard> createState() => _ExpandableContentCardState();

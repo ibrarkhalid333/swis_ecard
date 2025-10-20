@@ -34,12 +34,12 @@ class EditMedia extends StatelessWidget {
               ),
               Container(
                 height: 40.h,
-                child: Center(
-                  child: Text(textAlign: TextAlign.center, 'Url To be copied'),
-                ),
                 decoration: BoxDecoration(
                   color: AppColors.blackColor.withAlpha(20),
                   borderRadius: BorderRadius.circular(8.sp),
+                ),
+                child: Center(
+                  child: Text(textAlign: TextAlign.center, 'Url To be copied'),
                 ),
               ),
               SizedBox(height: 5.h),
@@ -82,11 +82,11 @@ class EditMedia extends StatelessWidget {
                           Container(
                             width: 70.sp,
                             height: 70.sp,
-                            child: Center(child: Icon(Icons.phone)),
                             decoration: BoxDecoration(
                               color: AppColors.greenColor,
                               borderRadius: BorderRadius.circular(15),
                             ),
+                            child: Center(child: Icon(Icons.phone)),
                           ),
                           Text(
                             "WhatsApp",

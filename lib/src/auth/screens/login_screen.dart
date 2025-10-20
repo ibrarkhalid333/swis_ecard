@@ -70,9 +70,11 @@ class LoginScreen extends StatelessWidget {
                               if (!isValid) {
                                 return 'Enter a Valid Email';
                               } else {
+                                loginController.setEmail(emailController.text);
                                 return null;
                               }
                             }
+                            return null;
                           },
                         ),
                       ),
@@ -96,6 +98,9 @@ class LoginScreen extends StatelessWidget {
                               if (!isValid) {
                                 return 'Invalid Password';
                               } else {
+                                loginController.setPassword(
+                                  passwordController.text,
+                                );
                                 return null;
                               }
                             }
@@ -134,14 +139,9 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 10.h),
                 RoundButton(
                   width: double.infinity,
-                  onPress: () async {
+                  onPress: () {
                     if (loginController.form_key.currentState!.validate()) {
-                      await loginController.getData();
-                      NavigationService.pushReplacement(
-                        context,
-                        //AppRoutes.dashBoard,
-                        AppRoutes.testScreen,
-                      );
+                      loginController.login(context);
                     }
                   },
                   title: "LOGIN",

@@ -9,6 +9,8 @@ import 'package:swisecard/src/widgets/navbar.dart';
 import 'package:swisecard/src/widgets/round_button.dart';
 
 class CardSettings extends StatefulWidget {
+  const CardSettings({super.key});
+
   @override
   _CardSettingState createState() => _CardSettingState();
 }
@@ -42,7 +44,7 @@ class _CardSettingState extends State<CardSettings> {
     String min = '';
     String ampm = '';
 
-    if (digits.length >= 1) {
+    if (digits.isNotEmpty) {
       hr = digits.substring(0, digits.length >= 2 ? 2 : 1);
       if (hr.length == 1) hr = '0$hr'; // Add leading zero
     }
@@ -97,12 +99,12 @@ class _CardSettingState extends State<CardSettings> {
               Text("Swiss eCard Url", style: AppTextStyles.subHeading),
               Container(
                 height: 40.h,
-                child: Center(
-                  child: Text(textAlign: TextAlign.center, 'Url To be copied'),
-                ),
                 decoration: BoxDecoration(
                   color: AppColors.blackColor.withAlpha(20),
                   borderRadius: BorderRadius.circular(8.sp),
+                ),
+                child: Center(
+                  child: Text(textAlign: TextAlign.center, 'Url To be copied'),
                 ),
               ),
               SizedBox(height: 5.h),

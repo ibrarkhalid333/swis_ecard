@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swisecard/src/edit-card/widgets/color_section.dart';
 
 class MediaDialogue extends StatefulWidget {
+  const MediaDialogue({super.key});
+
   @override
   State<MediaDialogue> createState() => _MediaDialogueState();
 }

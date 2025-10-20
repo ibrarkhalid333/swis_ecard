@@ -1,12 +1,10 @@
-import 'dart:convert';
-import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'base_api_services.dart';
 
 class NetworkApiServices extends BaseApiServices {
   // Map<String, dynamic> tokenMap = {"token": "some_token_value"};
   // dynamic responseJson;
+  @override
   Future<dynamic> getApi(String url, {String? token}) async {
     try {
       final response = await http.get(
@@ -29,6 +27,17 @@ class NetworkApiServices extends BaseApiServices {
     } catch (err) {
       return err;
       //  print(err);
+    }
+  }
+
+  Future<dynamic> postApi(var data, String url) async {
+    try {
+      print("$data $url");
+      final response = await http.post(Uri.parse(url), body: data);
+      print("response is $response");
+      return response;
+    } catch (err) {
+      return err;
     }
   }
 }

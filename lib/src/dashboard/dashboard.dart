@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:swisecard/core/res/colors/appColors.dart';
 import 'package:swisecard/core/res/style/app_text_styles.dart';
+import 'package:swisecard/src/dashboard/dashboardController.dart';
 import 'package:swisecard/src/widgets/custom_appbar.dart';
 import 'package:swisecard/src/widgets/custom_ecard.dart';
 import 'package:swisecard/src/widgets/navbar.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+  Dashboard({super.key});
+  final controller = Get.find<DashboardController>();
 
   @override
   Widget build(BuildContext context) {
+    print("dashboard controller initialized");
     return Scaffold(
       appBar: CustomAppBar(),
       drawer: CustomDrawer(),
@@ -26,10 +30,12 @@ class Dashboard extends StatelessWidget {
                 style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 15.h),
-              Text(
-                "Welcome Ibrar Khalid Farooqi",
-                textAlign: TextAlign.center,
-                style: AppTextStyles.mainHeading,
+              Obx(
+                () => Text(
+                  "Welcome ${controller.fullName.value}",
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.mainHeading,
+                ),
               ),
               SizedBox(height: 30.h),
               Row(

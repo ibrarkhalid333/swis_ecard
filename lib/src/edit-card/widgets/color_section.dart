@@ -8,11 +8,11 @@ class ColorSection extends StatefulWidget {
   final Color color;
 
   const ColorSection({
-    Key? key,
+    super.key,
     required this.title,
     required this.colorCode,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   State<ColorSection> createState() => _ColorSectionState();

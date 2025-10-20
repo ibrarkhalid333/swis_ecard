@@ -31,12 +31,12 @@ class EditProfile extends StatelessWidget {
               Text("Swiss eCard Url", style: AppTextStyles.subHeading),
               Container(
                 height: 40.h,
-                child: Center(
-                  child: Text(textAlign: TextAlign.center, 'Url To be copied'),
-                ),
                 decoration: BoxDecoration(
                   color: AppColors.blackColor.withAlpha(20),
                   borderRadius: BorderRadius.circular(8.sp),
+                ),
+                child: Center(
+                  child: Text(textAlign: TextAlign.center, 'Url To be copied'),
                 ),
               ),
               SizedBox(height: 5.h),

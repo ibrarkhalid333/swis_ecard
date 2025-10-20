@@ -15,7 +15,7 @@ import 'package:swisecard/src/edit-card/screens/qr_code.dart';
 import 'package:swisecard/src/edit-card/screens/save_in_contact.dart';
 
 class AppRoutes {
-  static const dashBoard = Dashboard();
+  static final dashBoard = Dashboard();
   static const createEcard = CreateEcard();
   static const manageEcard = ManageEcard();
   static const editBasicInfo = EditBasicInfo();
