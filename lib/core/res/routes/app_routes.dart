@@ -16,7 +16,7 @@ import 'package:swisecard/src/edit-card/screens/save_in_contact.dart';
 
 class AppRoutes {
   static final dashBoard = Dashboard();
-  static const createEcard = CreateEcard();
+  static final createEcard = CreateEcard();
   static const manageEcard = ManageEcard();
   static const editBasicInfo = EditBasicInfo();
   static const saveInContact = SaveInContact();

@@ -12,6 +12,7 @@ import 'package:swisecard/data/app_exceptions.dart';
 import 'package:swisecard/src/auth/model/user_model.dart';
 import 'package:swisecard/src/auth/repossitories/auth_repository.dart';
 import 'package:swisecard/src/auth/services/auth_services.dart';
+import 'package:swisecard/src/auth/services/user_prefrences.dart';
 import 'package:swisecard/src/dashboard/dashboardController.dart';
 
 class LoginController extends GetxController {
@@ -20,6 +21,7 @@ class LoginController extends GetxController {
   String email = "";
   String password = "";
   String userError = "";
+  final userPreferences = UserPrefrences();
   void setUserError(String err) {
     userError = err;
   }
@@ -43,16 +45,25 @@ class LoginController extends GetxController {
     try {
       print("try ");
       dynamic response = await _api.LoginApi(data);
-      final responseData = jsonDecode(response.body);
-      print(response.body);
-      final jsonResponse = UserModel.fromJson(responseData);
-      print("The response is: $jsonResponse");
-      print(response);
-      this.data.value = response.body;
+      print("API Response: ${response.toString()}");
+      final body = response["body"];
+      // Access headers
+      final headers = response["headers"];
+      final token = headers["auth-token"];
+      print(token.runtimeType);
+      print("Body: $body");
+      print(body.runtimeType);
+      body["token"] = token;
+      print("Body: $body");
+      print("Token from header: $token");
+      final jsonResponse = UserModel.fromJson(body);
+      print("jsonResponse: ${jsonResponse}");
       if (jsonResponse.sucess == true) {
         print("Saving UserModel: ${jsonResponse.toJson()}");
         print("User data inside: ${jsonResponse.data?.fullName}");
-        authServices.setCurrentUser(jsonResponse);
+
+        // authServices.setCurrentUser(jsonResponse);
+        await userPreferences.saveUser(jsonResponse);
         if (Get.isRegistered<DashboardController>()) {
           Get.delete<DashboardController>();
         }

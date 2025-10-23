@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:swisecard/src/auth/screens/login_screen.dart';
+import 'package:swisecard/src/auth/services/user_prefrences.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  CustomAppBar({super.key});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  UserPrefrences userPrefrences = UserPrefrences();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             const PopupMenuDivider(thickness: 1.2),
             PopupMenuItem(
               child: ListTile(
-                onTap: () {
+                onTap: () async {
+                  await userPrefrences.RemoveUser();
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => LoginScreen()),
