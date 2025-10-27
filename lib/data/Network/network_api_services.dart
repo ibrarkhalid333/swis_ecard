@@ -6,7 +6,7 @@ import 'package:swisecard/data/app_exceptions.dart';
 import 'base_api_services.dart';
 
 class NetworkApiServices extends BaseApiServices {
-  // Map<String, dynamic> tokenMap = {"token": "some_token_value"};
+  
   dynamic responseJson;
   @override
   Future<dynamic> getApi(String url, {String? token}) async {

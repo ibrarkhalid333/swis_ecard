@@ -1,7 +1,7 @@
 class EcardModel {
   int? statusCode;
   bool? sucess;
-  Data? data;
+  List<Data>? data;
   String? message;
 
   EcardModel({this.statusCode, this.sucess, this.data, this.message});
@@ -9,7 +9,12 @@ class EcardModel {
   EcardModel.fromJson(Map<String, dynamic> json) {
     statusCode = json['statusCode'];
     sucess = json['sucess'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    if (json['data'] != null) {
+      data = <Data>[];
+      json['data'].forEach((v) {
+        data!.add(new Data.fromJson(v));
+      });
+    }
     message = json['message'];
   }
 
@@ -18,7 +23,7 @@ class EcardModel {
     data['statusCode'] = this.statusCode;
     data['sucess'] = this.sucess;
     if (this.data != null) {
-      data['data'] = this.data!.toJson();
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
     data['message'] = this.message;
     return data;
@@ -46,7 +51,6 @@ class Data {
   String? buttonTextColor;
   String? qrBackgroundColor;
   String? qrTextColor;
-  String? shareCode;
   Null? shareUrl;
   String? createdAt;
   String? updatedAt;
@@ -73,7 +77,6 @@ class Data {
     this.buttonTextColor,
     this.qrBackgroundColor,
     this.qrTextColor,
-    this.shareCode,
     this.shareUrl,
     this.createdAt,
     this.updatedAt,
@@ -101,7 +104,6 @@ class Data {
     buttonTextColor = json['button_text_color'];
     qrBackgroundColor = json['qr_background_color'];
     qrTextColor = json['qr_text_color'];
-    shareCode = json['share_code'];
     shareUrl = json['share_url'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
@@ -130,7 +132,6 @@ class Data {
     data['button_text_color'] = this.buttonTextColor;
     data['qr_background_color'] = this.qrBackgroundColor;
     data['qr_text_color'] = this.qrTextColor;
-    data['share_code'] = this.shareCode;
     data['share_url'] = this.shareUrl;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
